@@ -5,6 +5,7 @@
 //! Common HAL (hardware abstraction layer) for ATmega* microcontrollers.
 //!
 //! **Note**: This version of the documentation was built for
+#![cfg_attr(feature = "atmega8", doc = "**ATmega8**.")]
 #![cfg_attr(feature = "atmega48p", doc = "**ATmega48P**.")]
 #![cfg_attr(feature = "atmega168", doc = "**ATmega168**.")]
 #![cfg_attr(feature = "atmega328p", doc = "**ATmega328P**.")]
@@ -28,6 +29,7 @@ compile_error!(
 
     Please select one of the following
 
+    * atmega8
     * atmega48p
     * atmega168
     * atmega328p
@@ -38,7 +40,10 @@ compile_error!(
     "
 );
 
-/// Reexport of `atmega1280` from `avr-device`
+/// Reexport of `atmega8` from `avr-device`
+#[cfg(feature = "atmega8")]
+pub use avr_device::atmega8 as pac;
+//// Reexport of `atmega1280` from `avr-device`
 #[cfg(feature = "atmega1280")]
 pub use avr_device::atmega1280 as pac;
 /// Reexport of `atmega168` from `avr-device`
