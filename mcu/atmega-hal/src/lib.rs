@@ -100,9 +100,10 @@ pub mod usart;
 #[cfg(feature = "device-selected")]
 pub use usart::Usart;
 
-#[cfg(feature = "device-selected")]
+#[cfg(all(feature = "device-selected", not(feature = "atmega8")))]
 pub mod wdt;
-#[cfg(feature = "device-selected")]
+//#[cfg(feature = "device-selected")]
+#[cfg(all(feature = "device-selected", not(feature = "atmega8")))]
 pub use wdt::Wdt;
 
 pub struct Atmega;
