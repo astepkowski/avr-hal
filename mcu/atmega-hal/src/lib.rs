@@ -102,13 +102,12 @@ pub use usart::Usart;
 
 #[cfg(all(feature = "device-selected", not(feature = "atmega8")))]
 pub mod wdt;
-//#[cfg(feature = "device-selected")]
 #[cfg(all(feature = "device-selected", not(feature = "atmega8")))]
 pub use wdt::Wdt;
 
 pub struct Atmega;
 
-#[cfg(any(feature = "atmega48p", feature = "atmega168", feature = "atmega328p"))]
+#[cfg(any(feature = "atmega8", feature = "atmega48p", feature = "atmega168", feature = "atmega328p"))]
 #[macro_export]
 macro_rules! pins {
     ($p:expr) => {
